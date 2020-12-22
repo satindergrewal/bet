@@ -134,7 +134,7 @@ void bet_check_cashiers_status()
 		}
 		printf("temp_string - bet_check_cashiers_status() - %s\n", temp_string);
 		int tmpcompare = (temp) && (jstr(temp, "live");
-		printf("%d\n", tmpcompare);
+		printf("tmpcompare - %d\n", tmpcompare);
 
 		if ((temp) && (jstr(temp, "live") == 0)) {
 			notary_status[i] = 1;
