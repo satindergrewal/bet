@@ -123,7 +123,7 @@ void bet_check_cashiers_status()
 
 	live_notaries = 0;
 	for (int32_t i = 0; i < no_of_notaries; i++) {
-		printf("no_of_notaries - %d | i - %d\n", no_of_notaries, i);
+		printf("\nno_of_notaries - %d | i - %d\n", no_of_notaries, i);
 		cJSON *temp = bet_msg_cashier_with_response_id(live_info, notary_node_ips[i], "live");
 
 		char *temp_string = NULL;
@@ -856,7 +856,7 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
 	memset(bind_sub_addr, 0x00, sizeof(bind_sub_addr));
 	memset(bind_push_addr, 0x00, sizeof(bind_push_addr));
 
-	printf("\n\nbet_tcp_sock_address 1 - %s\n", bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port));
+	printf("bet_tcp_sock_address 1 - %s\n", bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port));
 	bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port);
 	c_subsock = bet_nanosock(0, bind_sub_addr, NN_SUB);
 	printf("c_subsock - %d\n", c_subsock);
