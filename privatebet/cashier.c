@@ -873,7 +873,7 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
         fprintf(stderr, "Failed to print argjson_string.\n");
     }
 	printf("argjson_string - bet_msg_cashier_with_response_id() - %s\n", argjson_string);
-	printf("argjson_string length - %d\n", strlen(argjson_string));
+	printf("argjson_string length - %ld\n", strlen(argjson_string));
 
 	bytes = nn_send(c_pushsock, cJSON_Print(argjson), strlen(cJSON_Print(argjson)), 0);
 	printf("nn_send bytes - %d\n\n", bytes);
