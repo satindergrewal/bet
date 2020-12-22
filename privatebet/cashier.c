@@ -859,10 +859,12 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
 	printf("bet_tcp_sock_address 1 - %s\n", bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port));
 	bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port);
 	c_subsock = bet_nanosock(0, bind_sub_addr, NN_SUB);
+	printf("c_subsock - %d", c_subsock);
 
 	printf("bet_tcp_sock_address 2 - %s\n", bet_tcp_sock_address(0, bind_push_addr, cashier_ip, cashier_pushpull_port));
 	bet_tcp_sock_address(0, bind_push_addr, cashier_ip, cashier_pushpull_port);
 	c_pushsock = bet_nanosock(0, bind_push_addr, NN_PUSH);
+	printf("c_pushsock - %d", c_pushsock);
 
 	bytes = nn_send(c_pushsock, cJSON_Print(argjson), strlen(cJSON_Print(argjson)), 0);
 	if (bytes < 0) {
