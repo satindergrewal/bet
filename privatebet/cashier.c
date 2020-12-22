@@ -123,8 +123,19 @@ void bet_check_cashiers_status()
 
 	live_notaries = 0;
 	for (int32_t i = 0; i < no_of_notaries; i++) {
-		printf("no_of_notaries - %d | i %d\n", no_of_notaries, i);
+		printf("no_of_notaries - %d | i - %d\n", no_of_notaries, i);
 		cJSON *temp = bet_msg_cashier_with_response_id(live_info, notary_node_ips[i], "live");
+
+		char *temp_string = NULL;
+		temp_string = cJSON_Print(temp);
+		if (temp_string == NULL)
+		{
+			fprintf(stderr, "Failed to print monitor.\n");
+		}
+		printf("temp_string - bet_check_cashiers_status() - %s\n", temp_string);
+		int tmpcompare = (temp) && (jstr(temp, "live");
+		printf("%d\n", tmpcompare);
+
 		if ((temp) && (jstr(temp, "live") == 0)) {
 			notary_status[i] = 1;
 			live_notaries++;
