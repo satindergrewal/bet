@@ -864,9 +864,19 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
 	printf("bet_tcp_sock_address 2 - %s\n", bet_tcp_sock_address(0, bind_push_addr, cashier_ip, cashier_pushpull_port));
 	bet_tcp_sock_address(0, bind_push_addr, cashier_ip, cashier_pushpull_port);
 	c_pushsock = bet_nanosock(0, bind_push_addr, NN_PUSH);
-	printf("c_pushsock - %d\n\n", c_pushsock);
+	printf("c_pushsock - %d\n", c_pushsock);
+
+	char *argjson_string = NULL;
+	argjson_string = cJSON_Print(argjson);
+    if (argjson_string == NULL)
+    {
+        fprintf(stderr, "Failed to print argjson_string.\n");
+    }
+	printf("argjson_string - bet_msg_cashier_with_response_id() - %s\n", argjson_string);
+	printf("argjson_string length - %d\n", strnlen(argjson_string));
 
 	bytes = nn_send(c_pushsock, cJSON_Print(argjson), strlen(cJSON_Print(argjson)), 0);
+	printf("nn_send bytes - %d\n\n", bytes);
 	if (bytes < 0) {
 		return NULL;
 	} else {
