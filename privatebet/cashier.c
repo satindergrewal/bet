@@ -874,6 +874,14 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
 
 	nn_close(c_pushsock);
 	nn_close(c_subsock);
+	
+	char *response_info_string = NULL;
+	response_info_string = cJSON_Print(response_info);
+    if (response_info_string == NULL)
+    {
+        fprintf(stderr, "Failed to print monitor.\n");
+    }
+	printf("response_info_string - bet_msg_cashier_with_response_id() - %s\n", response_info_string);
 
 	return response_info;
 }
