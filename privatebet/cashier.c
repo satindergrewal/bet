@@ -133,7 +133,7 @@ void bet_check_cashiers_status()
 			fprintf(stderr, "Failed to print monitor.\n");
 		}
 		printf("temp_string - bet_check_cashiers_status() - %s\n", temp_string);
-		int tmpcompare = ((temp) && (jstr(temp, "live"));
+		int tmpcompare = jstr(temp, "live");
 		printf("tmpcompare - %d\n", tmpcompare);
 
 		if ((temp) && (jstr(temp, "live") == 0)) {
