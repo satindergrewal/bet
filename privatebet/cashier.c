@@ -856,7 +856,7 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
 	memset(bind_sub_addr, 0x00, sizeof(bind_sub_addr));
 	memset(bind_push_addr, 0x00, sizeof(bind_push_addr));
 
-	printf("bet_tcp_sock_address 1 - %s\n", bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port));
+	printf("\n\nbet_tcp_sock_address 1 - %s\n", bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port));
 	bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port);
 	c_subsock = bet_nanosock(0, bind_sub_addr, NN_SUB);
 	printf("c_subsock - %d\n", c_subsock);
@@ -864,7 +864,7 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
 	printf("bet_tcp_sock_address 2 - %s\n", bet_tcp_sock_address(0, bind_push_addr, cashier_ip, cashier_pushpull_port));
 	bet_tcp_sock_address(0, bind_push_addr, cashier_ip, cashier_pushpull_port);
 	c_pushsock = bet_nanosock(0, bind_push_addr, NN_PUSH);
-	printf("c_pushsock - %d\n", c_pushsock);
+	printf("c_pushsock - %d\n\n", c_pushsock);
 
 	bytes = nn_send(c_pushsock, cJSON_Print(argjson), strlen(cJSON_Print(argjson)), 0);
 	if (bytes < 0) {
