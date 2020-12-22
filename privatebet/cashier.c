@@ -89,6 +89,8 @@ void bet_check_cashier_nodes()
 {
 	bet_check_cashiers_status();
 
+	printf("live_notaries - bet_check_cashier_nodes() - %d\n", live_notaries);
+
 	if (live_notaries < 2) {
 		printf("Not enough notaries are available, if you continue you lose funds\n");
 		exit(0);
@@ -110,6 +112,13 @@ void bet_check_cashiers_status()
 	live_info = cJSON_CreateObject();
 	cJSON_AddStringToObject(live_info, "method", "live");
 	cJSON_AddStringToObject(live_info, "id", unique_id);
+
+	live_info_string = cJSON_Print(live_info);
+    if (live_info_string == NULL)
+    {
+        fprintf(stderr, "Failed to print monitor.\n");
+    }
+	printf("live_info_string - bet_check_cashiers_status() - %s\n", live_info_string);
 
 	live_notaries = 0;
 	for (int32_t i = 0; i < no_of_notaries; i++) {
