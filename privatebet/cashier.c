@@ -875,7 +875,7 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
 	printf("argjson_string - bet_msg_cashier_with_response_id() - %s\n", argjson_string);
 	printf("argjson_string length - %ld\n", strlen(argjson_string));
 
-	bytes = nn_send(c_pushsock, cJSON_Print(argjson), strlen(cJSON_Print(argjson)), NN_DONTWAIT);
+	bytes = nn_send(c_pushsock, cJSON_Print(argjson), strlen(cJSON_Print(argjson)), 0);
 	printf("nn_send bytes - %d\n\n", bytes);
 	if (bytes < 0) {
 		return NULL;
