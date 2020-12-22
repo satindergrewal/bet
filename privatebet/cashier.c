@@ -113,6 +113,7 @@ void bet_check_cashiers_status()
 	cJSON_AddStringToObject(live_info, "method", "live");
 	cJSON_AddStringToObject(live_info, "id", unique_id);
 
+	char *live_info_string = NULL;
 	live_info_string = cJSON_Print(live_info);
     if (live_info_string == NULL)
     {
