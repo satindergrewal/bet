@@ -117,7 +117,7 @@ void bet_check_cashiers_status()
 	live_info_string = cJSON_Print(live_info);
     if (live_info_string == NULL)
     {
-        fprintf(stderr, "Failed to print monitor.\n");
+        fprintf(stderr, "Failed to print live_info_string.\n");
     }
 	printf("live_info_string - bet_check_cashiers_status() - %s\n", live_info_string);
 
@@ -130,7 +130,7 @@ void bet_check_cashiers_status()
 		temp_string = cJSON_Print(temp);
 		if (temp_string == NULL)
 		{
-			fprintf(stderr, "Failed to print monitor.\n");
+			fprintf(stderr, "Failed to print temp_string.\n");
 		}
 		printf("temp_string - bet_check_cashiers_status() - %s\n", temp_string);
 		// int tmpcompare = jstr(temp, "live");
@@ -891,7 +891,7 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
 	response_info_string = cJSON_Print(response_info);
     if (response_info_string == NULL)
     {
-        fprintf(stderr, "Failed to print monitor.\n");
+        fprintf(stderr, "Failed to print response_info_string.\n");
     }
 	printf("response_info_string - bet_msg_cashier_with_response_id() - %s\n", response_info_string);
 
