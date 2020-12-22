@@ -91,7 +91,7 @@ void bet_check_cashier_nodes()
 
 	printf("live_notaries - bet_check_cashier_nodes() - %d\n", live_notaries);
 
-	if (live_notaries < 2) {
+	if (live_notaries < threshold_value) {
 		printf("Not enough notaries are available, if you continue you lose funds\n");
 		exit(0);
 	} else {
