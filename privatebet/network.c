@@ -78,10 +78,10 @@ int32_t bet_nanosock(int32_t bindflag, char *endpoint, int32_t nntype)
 			} else
 				printf("(%s) bound\n", endpoint);
 		}
-		timeout = 100;
-		nn_setsockopt(sock, NN_SOL_SOCKET, NN_RCVTIMEO, &timeout, sizeof(timeout));
-		timeout = 100;
-		nn_setsockopt(sock, NN_SOL_SOCKET, NN_SNDTIMEO, &timeout, sizeof(timeout));
+		// timeout = 100;
+		// nn_setsockopt(sock, NN_SOL_SOCKET, NN_RCVTIMEO, &timeout, sizeof(timeout));
+		// timeout = 100;
+		// nn_setsockopt(sock, NN_SOL_SOCKET, NN_SNDTIMEO, &timeout, sizeof(timeout));
 		// maxsize = 2 * 1024 * 1024;
 		// nn_setsockopt(sock,NN_SOL_SOCKET,NN_RCVBUF,&maxsize,sizeof(maxsize));
 		if (nntype == NN_SUB)

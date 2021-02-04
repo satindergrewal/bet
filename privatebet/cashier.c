@@ -856,6 +856,8 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
 	memset(bind_sub_addr, 0x00, sizeof(bind_sub_addr));
 	memset(bind_push_addr, 0x00, sizeof(bind_push_addr));
 
+	printf("cashier_ip - %s\n", cashier_ip);
+
 	// printf("bet_tcp_sock_address 1 - %s\n", bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port));
 	bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port);
 	c_subsock = bet_nanosock(0, bind_sub_addr, NN_SUB);
