@@ -856,15 +856,15 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
 	memset(bind_sub_addr, 0x00, sizeof(bind_sub_addr));
 	memset(bind_push_addr, 0x00, sizeof(bind_push_addr));
 
-	printf("bet_tcp_sock_address 1 - %s\n", bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port));
+	// printf("bet_tcp_sock_address 1 - %s\n", bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port));
 	bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port);
 	c_subsock = bet_nanosock(0, bind_sub_addr, NN_SUB);
-	printf("c_subsock - %d\n", c_subsock);
+	// printf("c_subsock - %d\n", c_subsock);
 
-	printf("bet_tcp_sock_address 2 - %s\n", bet_tcp_sock_address(0, bind_push_addr, cashier_ip, cashier_pushpull_port));
+	// printf("bet_tcp_sock_address 2 - %s\n", bet_tcp_sock_address(0, bind_push_addr, cashier_ip, cashier_pushpull_port));
 	bet_tcp_sock_address(0, bind_push_addr, cashier_ip, cashier_pushpull_port);
 	c_pushsock = bet_nanosock(0, bind_push_addr, NN_PUSH);
-	printf("c_pushsock - %d\n", c_pushsock);
+	// printf("c_pushsock - %d\n", c_pushsock);
 
 	char *argjson_string = NULL;
 	argjson_string = cJSON_Print(argjson);
@@ -872,11 +872,11 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
     {
         fprintf(stderr, "Failed to print argjson_string.\n");
     }
-	printf("argjson_string - bet_msg_cashier_with_response_id() - %s\n", argjson_string);
-	printf("argjson_string length - %ld\n", strlen(argjson_string));
+	// printf("argjson_string - bet_msg_cashier_with_response_id() - %s\n", argjson_string);
+	// printf("argjson_string length - %ld\n", strlen(argjson_string));
 
 	bytes = nn_send(c_pushsock, cJSON_Print(argjson), strlen(cJSON_Print(argjson)), 0);
-	printf("nn_send bytes - %d\n\n", bytes);
+	// printf("nn_send bytes - %d\n\n", bytes);
 	if (bytes < 0) {
 		return NULL;
 	} else {
@@ -907,7 +907,7 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
     {
         fprintf(stderr, "Failed to print response_info_string.\n");
     }
-	printf("response_info_string - bet_msg_cashier_with_response_id() - %s\n", response_info_string);
+	// printf("response_info_string - bet_msg_cashier_with_response_id() - %s\n", response_info_string);
 
 	return response_info;
 }
