@@ -15,7 +15,7 @@ game. As the number of notary nodes gets increased this value will be increased 
 threshold_value means more trust.
 ***********************************************************************************************************/
 
-int32_t threshold_value = 1;
+int32_t threshold_value = 2;
 
 /***********************************************************************************************************
 The notary_node_ips and notary_node_pubkeys values are read from the config file named cashier_nodes.json. 
@@ -89,7 +89,7 @@ void bet_check_cashier_nodes()
 {
 	bet_check_cashiers_status();
 
-	printf("live_notaries - bet_check_cashier_nodes() - %d\n", live_notaries);
+	// printf("live_notaries - bet_check_cashier_nodes() - %d\n", live_notaries);
 
 	if (live_notaries < threshold_value) {
 		printf("Not enough notaries are available, if you continue you lose funds\n");
@@ -119,11 +119,11 @@ void bet_check_cashiers_status()
     {
         fprintf(stderr, "Failed to print live_info_string.\n");
     }
-	printf("live_info_string - bet_check_cashiers_status() - %s\n", live_info_string);
+	// printf("live_info_string - bet_check_cashiers_status() - %s\n", live_info_string);
 
 	live_notaries = 0;
 	for (int32_t i = 0; i < no_of_notaries; i++) {
-		printf("\nno_of_notaries - %d | i - %d\n", no_of_notaries, i);
+		// printf("\nno_of_notaries - %d | i - %d\n", no_of_notaries, i);
 		cJSON *temp = bet_msg_cashier_with_response_id(live_info, notary_node_ips[i], "live");
 
 		char *temp_string = NULL;
@@ -132,9 +132,9 @@ void bet_check_cashiers_status()
 		{
 			fprintf(stderr, "Failed to print temp_string.\n");
 		}
-		printf("temp_string - bet_check_cashiers_status() - %s\n", temp_string);
+		// printf("temp_string - bet_check_cashiers_status() - %s\n", temp_string);
 		// int tmpcompare = jstr(temp, "live");
-		printf("tmpcompare - %s\n", jstr(temp, "live"));
+		// printf("tmpcompare - %s\n", jstr(temp, "live"));
 
 		if ((temp) && (jstr(temp, "live") == 0)) {
 			notary_status[i] = 1;
@@ -856,7 +856,7 @@ cJSON *bet_msg_cashier_with_response_id(cJSON *argjson, char *cashier_ip, char *
 	memset(bind_sub_addr, 0x00, sizeof(bind_sub_addr));
 	memset(bind_push_addr, 0x00, sizeof(bind_push_addr));
 
-	printf("cashier_ip - %s\n", cashier_ip);
+	// printf("cashier_ip - %s\n", cashier_ip);
 
 	// printf("bet_tcp_sock_address 1 - %s\n", bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port));
 	bet_tcp_sock_address(0, bind_sub_addr, cashier_ip, cashier_pubsub_port);
