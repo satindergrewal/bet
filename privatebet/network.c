@@ -51,6 +51,7 @@ char *bet_tcp_sock_address(int32_t bindflag, char *str, char *ipaddr, uint16_t p
 {
 	sprintf(str, "tcp://%s:%u", bindflag == 0 ? ipaddr : "*",
 		port); // ws is worse
+	printf("ipaddr - %s", ipaddr);
 	printf("bet_tcp_sock_address - %s\n", str);
 	return (str);
 }
@@ -99,6 +100,8 @@ cJSON *bet_msg_dealer_with_response_id(cJSON *argjson, char *dealer_ip, char *me
 
 	memset(bind_sub_addr, 0x00, sizeof(bind_sub_addr));
 	memset(bind_push_addr, 0x00, sizeof(bind_push_addr));
+
+	printf("dealer_ip - %s", dealer_ip);
 
 	bet_tcp_sock_address(0, bind_sub_addr, dealer_ip, dealer_pubsub_port);
 	c_subsock = bet_nanosock(0, bind_sub_addr, NN_SUB);
