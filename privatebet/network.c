@@ -102,9 +102,11 @@ cJSON *bet_msg_dealer_with_response_id(cJSON *argjson, char *dealer_ip, char *me
 
 	bet_tcp_sock_address(0, bind_sub_addr, dealer_ip, dealer_pubsub_port);
 	c_subsock = bet_nanosock(0, bind_sub_addr, NN_SUB);
+	printf("c_subsock - %d\n", c_subsock);
 
 	bet_tcp_sock_address(0, bind_push_addr, dealer_ip, dealer_pushpull_port);
 	c_pushsock = bet_nanosock(0, bind_push_addr, NN_PUSH);
+	printf("c_pushsock - %d\n", c_pushsock);
 
 	bytes = nn_send(c_pushsock, cJSON_Print(argjson), strlen(cJSON_Print(argjson)), 0);
 	if (bytes < 0) {
