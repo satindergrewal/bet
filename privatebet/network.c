@@ -62,7 +62,7 @@ int32_t bet_nanosock(int32_t bindflag, char *endpoint, int32_t nntype)
 	if ((sock = nn_socket(AF_SP, nntype)) >= 0) {
 		if (bindflag == 0) {
 			nnConnectResp = nn_connect(sock, endpoint);
-			printf("nnConnectResp - %d", nnConnectResp);
+			printf("nnConnectResp - %d\n", nnConnectResp);
 			if (nnConnectResp < 0) {
 				printf("connect to %s error for %s\n", endpoint, nn_strerror(nn_errno()));
 				nn_close(sock);
