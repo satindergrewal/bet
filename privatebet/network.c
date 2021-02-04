@@ -51,7 +51,7 @@ char *bet_tcp_sock_address(int32_t bindflag, char *str, char *ipaddr, uint16_t p
 {
 	sprintf(str, "tcp://%s:%u", bindflag == 0 ? ipaddr : "*",
 		port); // ws is worse
-	printf("ipaddr - %s", ipaddr);
+	printf("ipaddr - %s\n", ipaddr);
 	printf("bet_tcp_sock_address - %s\n", str);
 	return (str);
 }
