@@ -319,7 +319,8 @@ static void bet_display_usage()
 	printf("\nFor DCV: ./bet dcv dcv_ip_address");
 	printf("\nFor Player: ./bet player");
 	printf("\nFor Cashier: ./bet cashier cashier_ip_address");
-	printf("\nFor Withdraw: ./bet withdraw amount addr\n");
+	printf("\nFor Withdraw: ./bet withdraw amount addr");
+	printf("\n");
 }
 
 static void bet_set_unique_id()
