@@ -320,7 +320,6 @@ static void bet_display_usage()
 	printf("\nFor Player: ./bet player");
 	printf("\nFor Cashier: ./bet cashier cashier_ip_address");
 	printf("\nFor Withdraw: ./bet withdraw amount addr");
-	printf("\n\n\n");
 }
 
 static void bet_set_unique_id()
