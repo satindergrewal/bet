@@ -58,8 +58,8 @@ char *bet_tcp_sock_address(int32_t bindflag, char *str, char *ipaddr, uint16_t p
 
 int32_t bet_nanosock(int32_t bindflag, char *endpoint, int32_t nntype)
 {
-	// int32_t sock, timeout;
 	int32_t sock;
+	int32_t timeout;
 	int nnConnectResp;
 	if ((sock = nn_socket(AF_SP, nntype)) >= 0) {
 		if (bindflag == 0) {
