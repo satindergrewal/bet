@@ -137,30 +137,10 @@ void bet_check_cashiers_status()
 	cJSON_AddStringToObject(live_info, "method", "live");
 	cJSON_AddStringToObject(live_info, "id", unique_id);
 
-	char *live_info_string = NULL;
-	live_info_string = cJSON_Print(live_info);
-    if (live_info_string == NULL)
-    {
-        fprintf(stderr, "Failed to print live_info_string.\n");
-    }
-	// printf("live_info_string - bet_check_cashiers_status() - %s\n", live_info_string);
-
 	live_notaries = 0;
 	for (int32_t i = 0; i < no_of_notaries; i++) {
-		// printf("\nno_of_notaries - %d | i - %d\n", no_of_notaries, i);
 		cJSON *temp = bet_msg_cashier_with_response_id(live_info, notary_node_ips[i], "live");
-
-		char *temp_string = NULL;
-		temp_string = cJSON_Print(temp);
-		if (temp_string == NULL)
-		{
-			fprintf(stderr, "Failed to print temp_string.\n");
-		}
-		// printf("temp_string - bet_check_cashiers_status() - %s\n", temp_string);
-		// int tmpcompare = jstr(temp, "live");
-		// printf("tmpcompare - %s\n", jstr(temp, "live"));
-
-		if ((temp) && (jstr(temp, "live") == 0)) {
+		if ((temp) && (strcmp(jstr(temp, "method"),"live") == 0)) {
 			notary_status[i] = 1;
 			live_notaries++;
 		}
